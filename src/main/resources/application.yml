@@ -11,19 +11,22 @@ spring:
         - id: auth-service
           uri: http://ms-auth:8081
           predicates:
-            - Path=/auth/**, /api/users/**
+            - Path=/auth/**, /api/users/**,/authentication/**, /authentication/v3/api-docs/**
+          filters:
+            - StripPrefix=1
 
         - id: event-service
           uri: http://ms-event:8082
           predicates:
-            - Path=/event/**, /api/events/**, /api/sessions/**, /api/speakers/**
-
+            - Path=/api/events/**, /api/sessions/**, /api/speakers/**, /event/**, /event/v3/api-docs/**
+          filters:
+            - StripPrefix=1
 
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - url: /auth/v3/api-docs
+      - url: /authentication/v3/api-docs
         name: MS Auth
       - url: /event/v3/api-docs
         name: MS Event
