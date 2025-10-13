@@ -26,9 +26,9 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - url: authentication/v3/api-docs
+      - url: /authentication/v3/api-docs
         name: MS Auth
-      - url: event/v3/api-docs
+      - url: /event/v3/api-docs
         name: MS Event
 
 
