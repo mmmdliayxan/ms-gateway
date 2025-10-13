@@ -30,7 +30,9 @@ public class SecurityConfig {
                                 "/configuration/ui",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
-                                "/actuator/**"
+                                "/actuator/**",
+                                "/authentication/v3/api-docs/**",
+                                "/events/v3/api-docs/**"
                         ).permitAll()
                         .anyExchange().permitAll()
                 );
