@@ -11,7 +11,7 @@ spring:
         - id: auth-service
           uri: http://ms-auth:8081
           predicates:
-            - Path=/auth/**, /api/users/**, /authentication/**, /authentication/v3/api-docs/**
+            - Path=/auth/**, /api/users/**, /authentication/**, /v3/api-docs/**
           filters:
             - StripPrefix=1
 
@@ -26,7 +26,7 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - url: /authentication/v3/api-docs
+      - url: /auth/v3/api-docs
         name: MS Auth
       - url: /event/v3/api-docs
         name: MS Event
