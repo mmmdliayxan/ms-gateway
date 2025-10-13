@@ -12,15 +12,13 @@ spring:
           uri: http://ms-auth:8081
           predicates:
             - Path=/auth/**, /api/users/**,/authentication/**, /authentication/v3/api-docs/**
-          filters:
-            - StripPrefix=1
+
 
         - id: event-service
           uri: http://ms-event:8082
           predicates:
             - Path=/api/events/**, /api/sessions/**, /api/speakers/**, /event/**, /event/v3/api-docs/**
-          filters:
-            - StripPrefix=1
+
 
 springdoc:
   swagger-ui:
