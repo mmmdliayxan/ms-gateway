@@ -8,19 +8,17 @@ spring:
   cloud:
     gateway:
       routes:
-        # Auth Service Route - fərqli prefix
         - id: auth-service
           uri: http://ms-auth:8081
           predicates:
-            - Path=/authentication/**, /authentication/v3/api-docs/**
+            - Path=/auth/**, /api/users/**, /v3/api-docs/**
           filters:
             - StripPrefix=1
 
-        # Event Service Route - fərqli prefix
         - id: event-service
           uri: http://ms-event:8082
           predicates:
-            - Path=/events/**, /events/v3/api-docs/**
+            - Path=/api/events/**, /api/sessions/**, /api/speakers/**, /v3/api-docs/**
           filters:
             - StripPrefix=1
 
@@ -28,11 +26,10 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - url: /authentication/v3/api-docs
+      - url: authentication/v3/api-docs
         name: MS Auth
-      - url: /events/v3/api-docs
+      - url: event/v3/api-docs
         name: MS Event
-
 
 
 secretKey: U2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uU2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uU2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uCg==
