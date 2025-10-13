@@ -18,7 +18,7 @@ spring:
         - id: event-service
           uri: http://ms-event:8082
           predicates:
-            - Path=/event/**, /api/events/**, /api/sessions/**, /api/speakers/**, /v3/api-docs/**
+            - Path=/api/events/**, /api/sessions/**, /api/speakers/**, /v3/api-docs/**
           filters:
             - StripPrefix=1
 
@@ -26,9 +26,9 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
     urls:
-      - url: /auth/v3/api-docs
+      - url: /v3/api-docs
         name: MS Auth
-      - url: /event/v3/api-docs
+      - url: /v3/api-docs
         name: MS Event
 
 
