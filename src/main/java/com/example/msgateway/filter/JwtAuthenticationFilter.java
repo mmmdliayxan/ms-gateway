@@ -23,7 +23,7 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, org.springframework.cloud.gateway.filter.GatewayFilterChain chain) {
         String path = exchange.getRequest().getURI().getPath();
 
-        if (path.startsWith("/auth/")) {
+        if (path.startsWith("/auth/")||path.startsWith("/event/")) {
             return chain.filter(exchange);
         }
 
