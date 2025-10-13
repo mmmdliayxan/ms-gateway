@@ -18,7 +18,7 @@ spring:
         - id: event-service
           uri: http://ms-event:8082
           predicates:
-            - Path=/api/events/**, /api/sessions/**, /api/speakers/**, /v3/api-docs/**
+            - Path=/event/**, /api/events/**, /api/sessions/**, /api/speakers/**, /v3/api-docs/**
           filters:
             - StripPrefix=1
 
