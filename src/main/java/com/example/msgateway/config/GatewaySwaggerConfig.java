@@ -14,21 +14,7 @@ public class GatewaySwaggerConfig {
 
     private static final String SECURITY_SCHEME_NAME = "BearerAuth";
 
-    @Bean
-    public GroupedOpenApi authServiceApi() {
-        return GroupedOpenApi.builder()
-                .group("Auth Service")
-                .pathsToMatch("/auth/**", "/api/users/**")
-                .build();
-    }
 
-    @Bean
-    public GroupedOpenApi eventServiceApi() {
-        return GroupedOpenApi.builder()
-                .group("Event Service")
-                .pathsToMatch("/api/events/**", "/api/sessions/**", "/api/speakers/**")
-                .build();
-    }
 
     @Bean
     public OpenAPI customOpenAPI() {
