@@ -23,6 +23,17 @@ spring:
           predicates:
             - Path=/api/tickets/**
 
+        - id: saga-service
+          uri: http://ms-payment-orchestrator:8084
+          predicates:
+            - Path=/api/saga/**
+
+        - id: payment-service
+          uri: http://ms-booking:8085
+          predicates:
+            - Path=/api/booking/**
+
+
         - id: auth-swagger
           uri: http://ms-auth:8081
           predicates:
@@ -43,6 +54,7 @@ spring:
             - Path=/ticket/v3/api-docs/**
           filters:
             - StripPrefix=1
+
 
 
 
