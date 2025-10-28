@@ -18,6 +18,11 @@ spring:
           predicates:
             - Path=/api/events/**, /api/sessions/**, /api/speakers/**
 
+        - id: ticket-service
+          uri: http://ms-ticket:8083
+          predicates:
+            - Path=/api/tickets/**
+
         - id: auth-swagger
           uri: http://ms-auth:8081
           predicates:
@@ -32,6 +37,12 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: ticket-swagger
+          uri: http://ms-ticket:8083
+          predicates:
+            - Path=/ticket/v3/api-docs/**
+          filters:
+            - StripPrefix=1
 
 
 
@@ -43,6 +54,7 @@ springdoc:
         name: MS Auth
       - url: /event/v3/api-docs
         name: MS Event
-
+      - url: /ticket/v3/api-docs
+        name: MS Ticket
 
 secretKey: U2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uU2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uU2ltcGx5IGVudGVyIHlvdXIgZGF0YSB0aGVuIHB1c2ggdGhlIGVuY29kZSBidXR0b24uCg==
