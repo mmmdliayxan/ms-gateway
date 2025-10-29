@@ -12,6 +12,9 @@ spring:
           uri: http://ms-auth:8081
           predicates:
             - Path=/auth/**, /api/users/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - AddRequestHeader=Authorization, #{request.headers['Authorization']}
 
         - id: event-service
           uri: http://ms-event:8082
